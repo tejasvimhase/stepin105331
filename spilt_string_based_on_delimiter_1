@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	char string[] = "my_name_is_edcast_future_skills";
+	char delimiter[] = "_";
+
+	char *ptr = strtok(string, delimiter);
+
+	while(ptr != '\0')
+	{
+		printf("\"%s\"\t", ptr);
+		ptr = strtok('\0', delimiter);
+	}
+	return 0;
+}
+
