@@ -1,0 +1,28 @@
+#include <stdio.h>                                                   //including stdio.h headerfile
+#include <stdlib.h>                                                  //including stdlib.h headerfile
+void sort(int n, int* p);                                            //declaration of sort function
+int main(){                                                          //the main function
+    int n=4;                                                         //declaring the variable n i.e the no of elements in the array
+    int* p;                                                          //declaring a pointer of integer type
+    p = (int*)malloc(n * sizeof(int));                               //dynamic memory allocated using malloc() function
+    printf("elements of the array are: ");                           //prints "elements of the array are:"
+    int array[] = { 31,22,19,42 };                                   //elemnts of the array
+    sort(n, array);                                                  //sort function called
+    return 0;
+} 
+
+void sort(int n, int* p){                                           //sort function
+    int i, j, t;                                                    //declaration of variables that will be used for sorting purpose
+    for (i = 0; i < n; i++) {                                       //for loop for i                            
+        for (j = i + 1; j < n; j++) {                               //for loop for j
+            if (*(p + j) < *(p + i)) {                              //check which pointer value is greater
+                t = *(p + i);                                       //copy the value of *(p + i) to t
+                *(p + i) = *(p + j);                                //copy the value of *(p + j) to *(p + i)
+                *(p + j) = t;                                       //copy the value of t to *(p + j)
+            }
+        }
+    }
+    for (i = 0; i < n; i++)                                         //for loop for printing the sorted array
+    printf("%d ", *(p + i));
+}
+
