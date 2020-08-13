@@ -1,0 +1,23 @@
+#include<stdio.h>                                     //to use printf() function we need to include the header file stdio.h
+int add(int, int);                                    //declaration of the add function
+int sub(int a, int b);                                //declaration of the sub function
+
+int main(){                                           //the main function
+    int (*p)(int,int);                                //declarationing pointer to the add function
+    int addition;                                     //declaration of a variable
+    p = &add;                                         //initializing a function pointer to the adddress of the add function
+    addition = (*p)(8,4);                             //passing the integer values to the function pointer and storing the result in a variable
+    printf("Addition is %d\n",addition);              //printing the addition result
+    int (*q)(int, int);                               //declarationing pointer to the sub function
+    int subtraction;                                  //declaration of a variable
+    q = &sub;                                         //initializing a function pointer to the adddress of the sub function
+    subtraction = (*q)(8,4);                          //passing the integer values to the function pointer and storing the result in a variable
+    printf("Subtraction is %d\n",subtraction);        //printing the subtraction result
+    return 0;
+}
+int add(int a, int b){                                //add function
+    return a+b;                                       //return the sum of the two variables
+}
+int sub(int a,int b){                                 //sub function
+    return a-b;                                       //return the diff of the two variables
+}
