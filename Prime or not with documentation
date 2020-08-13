@@ -1,0 +1,36 @@
+#include<stdio.h>                                                    //to use printf,scanf functions we need to include the stdio.h header file
+int main()                                                           //the main function 
+{    
+    int number,i,middle=0,FLAG=0;                                    //declaration and initialization of variables 
+    printf("Enter the number:");                                     //to print "enter the number"
+    scanf("%d",&number);                                             //to take the user input
+    int num=(int)number;                                             //typecasting to covert float, double into integers
+    if(num<0)                                                        //check whether the no is negative
+        {
+            printf("enter positive number");                         //if no is negative print "enter a positive no"
+            FLAG=1;                                                  //set the FLAG variable
+        }
+    else if (num==0 || num==1)                                        //check whether the entered no is either 0 or 1
+        {
+            printf("%d is not considered as prime number", num);      //if the no is 0 or 1 print "no is not considered as prime no"
+            FLAG=1;                                                   //set the FLAG variable
+        }
+
+    else
+        {
+            middle=num/2;                                             //calculate middle by dividing the no by 2
+            for(i=2;i<=middle;i++)                                    //loop to take different values i from 2 to middle
+                {    
+                    if(num%i==0)                                      //check whether remainder when num is divided by is zero
+                        {    
+                            printf("Entered number is not prime" );   //print "Entered number is not prime"   
+                            FLAG=1;                                   //set the FLAG variable
+                            break;                                    //break condition to come out of the if loop
+                        }    
+                }                   
+            
+        }   
+    if(FLAG==0)                                                       //check the FLAG variable
+        printf("Entered number is prime");                            //if FLAG is 0 print "Entered number is prime"
+    return 0;  
+ }
